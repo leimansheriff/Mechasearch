@@ -1,0 +1,44 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local database & Search index data.
+# Everything under data/ stays local by default. Git cannot re-include a file
+# inside an ignored directory, so ignore the children ("data/*") instead of the
+# directory itself, then re-include only what the deployed app must ship.
+data/*
+*.db
+*.sqlite3
+whoosh_index/
+
+# Shipped: the verified 4-page corpus and the index built from it. Without these
+# the deployed app has nothing to search.
+#!data/seeds_check.db
+#!data/whoosh_index/
+#!data/whoosh_index/**
+
+# Whoosh write locks are runtime artifacts, not index contents.
+data/whoosh_index/MAIN_WRITELOCK
+data/whoosh_index/*.lock
+
+# Secrets & credentials (never commit)
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+build/
