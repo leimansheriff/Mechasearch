@@ -1,14 +1,12 @@
 name: Build Windows App
-env:
-  PYTHONUTF8: "1"
-  PYTHONIOENCODING: "utf-8"
-  run: |
-    $OutputEncoding = [System.Text.Encoding]::UTF8
-    [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-    flet build windows
+
 on:
   push:
     branches: [ main ]
+
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: "utf-8"
 
 jobs:
   build-windows:
