@@ -34,7 +34,7 @@ jobs:
         pip install flet
 
     - name: Build Flet Windows App
-      run: flet build windows --verbose
+      run: flet build windows --no-compile-packages --verbose
 
     - name: Upload Windows Build Artifact
       uses: actions/upload-artifact@v4
