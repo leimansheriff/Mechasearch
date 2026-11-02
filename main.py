@@ -13,6 +13,10 @@ from urllib.parse import urlparse
 
 import flet as ft
 
+APP_ROOT = Path(__file__).resolve().parent
+if str(APP_ROOT) not in sys.path:
+    sys.path.insert(0, str(APP_ROOT))
+
 from config import settings
 from src.indexer.topics import TOPIC_LABELS, topic_label
 from src.search.searcher import SearchEngine
